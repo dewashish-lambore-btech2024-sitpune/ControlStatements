@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+string checkOddEven(int num) {
+    return (num % 2 == 0) ? "even" : "odd";
+}
+
+string checkOddEvenBitwise(int num) {
+    return (num & 1) ? "odd" : "even";
+}
+
+int main(){
+    int num;
+    char choice;
+    
+    do {
+        cout << "Enter a number: ";
+        cin >> num;
+        
+        cout << "\nResults:" << endl;
+        cout << num << " is " << checkOddEven(num) << endl;
+        
+        cout << "\nAdditional Information:" << endl;
+        cout << "Using bitwise check: " << num << " is " << checkOddEvenBitwise(num) << endl;
+        cout << "Last digit: " << abs(num) % 10 << endl;
+        
+        if(num == 0) {
+            cout << "Note: Zero is considered even" << endl;
+        }
+        
+        cout << "\nCheck another number? (y/n): ";
+        cin >> choice;
+        cout << endl;
+        
+    } while(choice == 'y' || choice == 'Y');
+    
+    cout << "Thanks for using the odd-even checker!" << endl;
+    return 0;
+}
