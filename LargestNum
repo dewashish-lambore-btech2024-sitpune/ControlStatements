@@ -1,0 +1,98 @@
+#include<iostream>
+using namespace std;
+
+void findGreatest(int a, int b, int c) {
+    if(a > b) {
+        if(a > c) {
+            cout << a << " is the greatest number" << endl;
+        }
+        else if(c > a) {
+            cout << c << " is the greatest number" << endl;
+        }
+        else {
+            cout << "Both " << a << " and " << c << " are equal and greatest" << endl;
+        }
+    }
+    else if(b > a) {
+        if(b > c) {
+            cout << b << " is the greatest number" << endl;
+        }
+        else if(c > b) {
+            cout << c << " is the greatest number" << endl;
+        }
+        else {
+            cout << "Both " << b << " and " << c << " are equal and greatest" << endl;
+        }
+    }
+    else {
+        if(a > c) {
+            cout << "Both " << a << " and " << b << " are equal and greatest" << endl;
+        }
+        else if(c > a) {
+            cout << c << " is the greatest number" << endl;
+        }
+        else {
+            cout << "All three numbers are equal" << endl;
+        }
+    }
+}
+
+void displayComparison(int a, int b, int c) {
+    cout << "\nComparison breakdown:" << endl;
+    cout << "Numbers entered: " << a << ", " << b << ", " << c << endl;
+    
+    cout << "Step-by-step comparison:" << endl;
+    if(a > b) {
+        cout << "• " << a << " > " << b << " (true)" << endl;
+        if(a > c) {
+            cout << "• " << a << " > " << c << " (true) → " << a << " is greatest" << endl;
+        }
+        else {
+            cout << "• " << a << " > " << c << " (false) → " << c << " is greatest" << endl;
+        }
+    }
+    else if(b > a) {
+        cout << "• " << b << " > " << a << " (true)" << endl;
+        if(b > c) {
+            cout << "• " << b << " > " << c << " (true) → " << b << " is greatest" << endl;
+        }
+        else {
+            cout << "• " << b << " > " << c << " (false) → " << c << " is greatest" << endl;
+        }
+    }
+    else {
+        cout << "• " << a << " = " << b << " (equal)" << endl;
+        if(a > c) {
+            cout << "• " << a << " > " << c << " (true) → " << a << " and " << b << " are greatest" << endl;
+        }
+        else if(c > a) {
+            cout << "• " << c << " > " << a << " (true) → " << c << " is greatest" << endl;
+        }
+        else {
+            cout << "• All numbers are equal" << endl;
+        }
+    }
+}
+
+int main(){
+    int num1, num2, num3;
+    char choice;
+    
+    do {
+        cout << "Enter three numbers: ";
+        cin >> num1 >> num2 >> num3;
+        
+        cout << "\nResult:" << endl;
+        findGreatest(num1, num2, num3);
+        
+        displayComparison(num1, num2, num3);
+        
+        cout << "\nFind greatest among another set? (y/n): ";
+        cin >> choice;
+        cout << endl;
+        
+    } while(choice == 'y' || choice == 'Y');
+    
+    cout << "Thanks for using the greatest number finder!" << endl;
+    return 0;
+}
