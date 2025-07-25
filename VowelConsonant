@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+bool isVowel(char ch) {
+    ch = tolower(ch);
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+}
+
+bool isAlphabet(char ch) {
+    return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'));
+}
+
+int main() {
+    char ch;
+    char choice;
+    
+    do {
+        cout << "Enter a character: ";
+        cin >> ch;
+        
+        if(!isAlphabet(ch)) {
+            cout << "'" << ch << "' is not an alphabet character" << endl;
+        }
+        else if(isVowel(ch)) {
+            cout << "'" << ch << "' is a vowel" << endl;
+        }
+        else {
+            cout << "'" << ch << "' is a consonant" << endl;
+        }
+        
+        cout << "\nAdditional Info:" << endl;
+        cout << "ASCII value: " << (int)ch << endl;
+        cout << "Uppercase: " << (char)toupper(ch) << endl;
+        cout << "Lowercase: " << (char)tolower(ch) << endl;
+        
+        cout << "\nCheck another character? (y/n): ";
+        cin >> choice;
+        cout << endl;
+        
+    } while(choice == 'y' || choice == 'Y');
+    
+    cout << "Thanks for using the vowel/consonant checker!" << endl;
+    return 0;
+}
