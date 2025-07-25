@@ -1,0 +1,68 @@
+#include<iostream>
+using namespace std;
+
+void displayMenu() {
+    cout << "\n=== DAY OF THE WEEK MOTIVATOR ===" << endl;
+    cout << "1. Monday" << endl;
+    cout << "2. Tuesday" << endl;
+    cout << "3. Wednesday" << endl;
+    cout << "4. Thursday" << endl;
+    cout << "5. Friday" << endl;
+    cout << "6. Saturday" << endl;
+    cout << "7. Sunday" << endl;
+    cout << "\nEnter a number (1-7): ";
+}
+
+string getDayName(int day) {
+    string days[] = {"", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    return days[day];
+}
+
+string getMotivation(int day) {
+    switch(day) {
+        case 1: return "Fresh start! Time to conquer the week! 💪";
+        case 2: return "Keep the momentum going! You've got this! 🚀";
+        case 3: return "Halfway there! The weekend is in sight! 🌟";
+        case 4: return "Almost there! Start planning your weekend fun! 📅";
+        case 5: return "TGIF! Time to celebrate the week's achievements! 🎉";
+        case 6: return "Weekend vibes! Relax, recharge, and enjoy! 🌈";
+        case 7: return "Sunday funday! Rest up for another amazing week! ☀️";
+        default: return "";
+    }
+}
+
+int main(){
+    int choice;
+    char continueChoice;
+    
+    do {
+        displayMenu();
+        cin >> choice;
+        
+        if(choice >= 1 && choice <= 7) {
+            cout << "\n🎯 It's " << getDayName(choice) << "!" << endl;
+            cout << "💡 " << getMotivation(choice) << endl;
+            
+            cout << "\nFun Fact: ";
+            switch(choice) {
+                case 1: cout << "Monday is named after the Moon!"; break;
+                case 2: cout << "Tuesday is named after Mars, the Roman god of war!"; break;
+                case 3: cout << "Wednesday is named after Odin, the Norse god!"; break;
+                case 4: cout << "Thursday is named after Thor, the Norse god of thunder!"; break;
+                case 5: cout << "Friday is named after Frigg, the Norse goddess!"; break;
+                case 6: cout << "Saturday is named after Saturn, the Roman god!"; break;
+                case 7: cout << "Sunday is named after the Sun!"; break;
+            }
+            cout << endl;
+        } else {
+            cout << "\n❌ Invalid choice! Please enter a number between 1-7." << endl;
+        }
+        
+        cout << "\nWant to check another day? (y/n): ";
+        cin >> continueChoice;
+        
+    } while(continueChoice == 'y' || continueChoice == 'Y');
+    
+    cout << "\nHave a wonderful day! Thanks for using the Day Motivator! 🌟" << endl;
+    return 0;
+}
